@@ -1,8 +1,8 @@
 
-public class Baidaq extends Fitxa {
+public class Ruhk extends Fitxa {
 
 	// CONSTRUCTOR
-	public Baidaq(String color) {
+	public Ruhk(String color) {
 		this.color = color;
 		this.visual = asignarVisual();
 	}
@@ -10,9 +10,9 @@ public class Baidaq extends Fitxa {
 	// MÉTODOS
 	private char asignarVisual() {
 		if (color.equalsIgnoreCase("negre")) {
-			return 'b';
+			return 'r';
 		} else if (color.equalsIgnoreCase("blanc")) {
-			return 'B';
+			return 'R';
 		} else {
 			return '?';
 		}
@@ -21,5 +21,4 @@ public class Baidaq extends Fitxa {
 	public char getVisual() {
 		return visual;
 	}
-
 }

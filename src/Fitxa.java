@@ -1,8 +1,11 @@
 
-public class Fitxa {
+public abstract class Fitxa {
 
-	// PROPIEDADES
+	// ATRIBUTOS
 	protected String color;
 	protected char visual;
 
+	// MÉTODOS
+	public Fitxa() {
+	}
 }

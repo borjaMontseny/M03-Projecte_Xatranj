@@ -1,8 +1,8 @@
 
-public class Baidaq extends Fitxa {
+public class Xa extends Fitxa {
 
 	// CONSTRUCTOR
-	public Baidaq(String color) {
+	public Xa(String color) {
 		this.color = color;
 		this.visual = asignarVisual();
 	}
@@ -10,9 +10,9 @@ public class Baidaq extends Fitxa {
 	// MÉTODOS
 	private char asignarVisual() {
 		if (color.equalsIgnoreCase("negre")) {
-			return 'b';
+			return 'x';
 		} else if (color.equalsIgnoreCase("blanc")) {
-			return 'B';
+			return 'X';
 		} else {
 			return '?';
 		}

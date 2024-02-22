@@ -3,7 +3,12 @@ public class CasellaBuida extends Fitxa {
 
 	// CONSTRUCTOR
 	public CasellaBuida() {
-		this.color = "Neutral";
-		this.visual = '-';
+		this.color = "neutral";
+		this.visual = ' ';
 	}
+
+	public char getVisual() {
+		return visual;
+	}
+	
 }
