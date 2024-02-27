@@ -5,7 +5,9 @@ public class Taulell {
 	private Fitxa[][] taulell = new Fitxa[8][8];
 	
 	// CONSTRUCTORES
-	
+	public Taulell() {
+		
+	}
 	
 	// METODOS
 	private void inicialitzarTaulell() {
