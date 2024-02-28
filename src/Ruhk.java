@@ -21,4 +21,5 @@ public class Ruhk extends Fitxa {
 	public char getVisual() {
 		return visual;
 	}
+	
 }

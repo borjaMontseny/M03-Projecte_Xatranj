@@ -4,7 +4,7 @@ public class CasellaBuida extends Fitxa {
 	// CONSTRUCTOR
 	public CasellaBuida() {
 		this.color = "neutral";
-		this.visual = ' ';
+		this.visual = '·';
 	}
 
 	public char getVisual() {

@@ -5,7 +5,23 @@ public abstract class Fitxa {
 	protected String color;
 	protected char visual;
 
-	// MÉTODOS
+	// CONSTRUCTORES
 	public Fitxa() {
+		this.color = "neutral";
+		this.visual = ' ';
+	}
+
+	// MÉTODOS
+	public String getColor() {
+		return color;
+	}
+	
+	public char getVisual() {
+		return visual;
+	}
+
+	@Override
+	public String toString() {
+		return String.valueOf(visual);
 	}
 }
