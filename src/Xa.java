@@ -14,7 +14,7 @@ public class Xa extends Fitxa {
 		} else if (color.equalsIgnoreCase("blanc")) {
 			return 'X';
 		} else {
-			return '?';
+			return '⚠';
 		}
 	}
 

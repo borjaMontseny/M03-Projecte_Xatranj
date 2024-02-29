@@ -8,25 +8,22 @@ public class Taulell {
 		inicialitzarTaulell();
 	}
 
+	// MÉTODOS
 	private void inicialitzarTaulell() {
 		// INSTANCIEM LES FITXES
 		// EQUIP BLANC
-		// Ruhks
 		Ruhk ruhk1B = new Ruhk("blanc");
 		Ruhk ruhk2B = new Ruhk("blanc");
 
-		// Faras
 		Faras faras1B = new Faras("blanc");
 		Faras faras2B = new Faras("blanc");
 
-		// Elefants
 		Elefant elefant1B = new Elefant("blanc");
 		Elefant elefant2B = new Elefant("blanc");
 
 		Xa xaB = new Xa("blanc");
 		Ministre ministreB = new Ministre("blanc");
 
-		// Baidaqs
 		Baidaq baidaq1B = new Baidaq("blanc");
 		Baidaq baidaq2B = new Baidaq("blanc");
 		Baidaq baidaq3B = new Baidaq("blanc");
@@ -36,23 +33,19 @@ public class Taulell {
 		Baidaq baidaq7B = new Baidaq("blanc");
 		Baidaq baidaq8B = new Baidaq("blanc");
 
-		// EQUIP NEGRO
-		// Ruhks
+		// EQUIP NEGRE
 		Ruhk ruhk1N = new Ruhk("negre");
 		Ruhk ruhk2N = new Ruhk("negre");
 
-		// Faras
 		Faras faras1N = new Faras("negre");
 		Faras faras2N = new Faras("negre");
 
-		// Elefants
 		Elefant elefant1N = new Elefant("negre");
 		Elefant elefant2N = new Elefant("negre");
 
 		Xa xaN = new Xa("negre");
 		Ministre ministreN = new Ministre("negre");
 
-		// Baidaqs
 		Baidaq baidaq1N = new Baidaq("negre");
 		Baidaq baidaq2N = new Baidaq("negre");
 		Baidaq baidaq3N = new Baidaq("negre");
@@ -62,121 +55,188 @@ public class Taulell {
 		Baidaq baidaq7N = new Baidaq("negre");
 		Baidaq baidaq8N = new Baidaq("negre");
 
-		// POSICIONAMENT INCIAL BLANC
-		taulell[6][0] = baidaq1B;
-		taulell[6][1] = baidaq2B;
-		taulell[6][2] = baidaq3B;
-		taulell[6][3] = baidaq4B;
-		taulell[6][4] = baidaq5B;
-		taulell[6][5] = baidaq6B;
-		taulell[6][6] = baidaq7B;
-		taulell[6][7] = baidaq8B;
-
-		taulell[7][0] = ruhk1B;
-		taulell[7][7] = ruhk2B;
-		taulell[7][1] = faras1B;
-		taulell[7][6] = faras2B;
-		taulell[7][2] = elefant1B;
-		taulell[7][5] = elefant2B;
-		taulell[7][3] = xaB;
-		taulell[7][4] = ministreB;
-
 		// POSICIONAMENT INICIAL NEGRE
-		taulell[0][0] = ruhk1N;
-		taulell[0][7] = ruhk2N;
-		taulell[0][1] = faras1N;
-		taulell[0][6] = faras2N;
-		taulell[0][2] = elefant1N;
-		taulell[0][5] = elefant2N;
-		taulell[0][3] = xaN;
-		taulell[0][4] = ministreN;
+		taulell[6][0] = baidaq1N;
+		taulell[6][1] = baidaq2N;
+		taulell[6][2] = baidaq3N;
+		taulell[6][3] = baidaq4N;
+		taulell[6][4] = baidaq5N;
+		taulell[6][5] = baidaq6N;
+		taulell[6][6] = baidaq7N;
+		taulell[6][7] = baidaq8N;
 
-		taulell[1][0] = baidaq1N;
-		taulell[1][1] = baidaq2N;
-		taulell[1][2] = baidaq3N;
-		taulell[1][3] = baidaq4N;
-		taulell[1][4] = baidaq5N;
-		taulell[1][5] = baidaq6N;
-		taulell[1][6] = baidaq7N;
-		taulell[1][7] = baidaq8N;
+		taulell[7][0] = ruhk1N;
+		taulell[7][7] = ruhk2N;
+		taulell[7][1] = faras1N;
+		taulell[7][6] = faras2N;
+		taulell[7][2] = elefant1N;
+		taulell[7][5] = elefant2N;
+		taulell[7][3] = xaN;
+		taulell[7][4] = ministreN;
 
-		// POSICIONAMENT DE LES CASELLES BUIDES
-		taulell[2][0] = new CasellaBuida();
-		taulell[2][1] = new CasellaBuida();
-		taulell[2][2] = new CasellaBuida();
-		taulell[2][3] = new CasellaBuida();
-		taulell[2][4] = new CasellaBuida();
-		taulell[2][5] = new CasellaBuida();
-		taulell[2][6] = new CasellaBuida();
-		taulell[2][7] = new CasellaBuida();
+		// POSICIONAMENT INCIAL BLANC
+		taulell[0][0] = ruhk1B;
+		taulell[0][7] = ruhk2B;
+		taulell[0][1] = faras1B;
+		taulell[0][6] = faras2B;
+		taulell[0][2] = elefant1B;
+		taulell[0][5] = elefant2B;
+		taulell[0][3] = xaB;
+		taulell[0][4] = ministreB;
 
-		taulell[3][0] = new CasellaBuida();
-		taulell[3][1] = new CasellaBuida();
-		taulell[3][2] = new CasellaBuida();
-		taulell[3][3] = new CasellaBuida();
-		taulell[3][4] = new CasellaBuida();
-		taulell[3][5] = new CasellaBuida();
-		taulell[3][6] = new CasellaBuida();
-		taulell[3][7] = new CasellaBuida();
+		taulell[1][0] = baidaq1B;
+		taulell[1][1] = baidaq2B;
+		taulell[1][2] = baidaq3B;
+		taulell[1][3] = baidaq4B;
+		taulell[1][4] = baidaq5B;
+		taulell[1][5] = baidaq6B;
+		taulell[1][6] = baidaq7B;
+		taulell[1][7] = baidaq8B;
 
-		taulell[4][0] = new CasellaBuida();
-		taulell[4][1] = new CasellaBuida();
-		taulell[4][2] = new CasellaBuida();
-		taulell[4][3] = new CasellaBuida();
-		taulell[4][4] = new CasellaBuida();
-		taulell[4][5] = new CasellaBuida();
-		taulell[4][6] = new CasellaBuida();
-		taulell[4][7] = new CasellaBuida();
-
-		taulell[5][0] = new CasellaBuida();
-		taulell[5][1] = new CasellaBuida();
-		taulell[5][2] = new CasellaBuida();
-		taulell[5][3] = new CasellaBuida();
-		taulell[5][4] = new CasellaBuida();
-		taulell[5][5] = new CasellaBuida();
-		taulell[5][6] = new CasellaBuida();
-		taulell[5][7] = new CasellaBuida();
 	}
 
+	// COMPTADORS
+	// D'aquesta manera cada cop que cridem als getsB/N, es recompta de nou
+	private int contarFichasBlanques() {
+		int contadorBlanques = 0;
+		for (int i = 0; i < 8; i++) {
+			for (int j = 0; j < 8; j++) {
+				if (taulell[i][j] != null && taulell[i][j].getColor().equalsIgnoreCase("blanc")) {
+					contadorBlanques++;
+				}
+			}
+		}
+		return contadorBlanques;
+	}
+
+	private int contarFichasNegres() {
+		int contadorNegres = 0;
+		for (int i = 0; i < 8; i++) {
+			for (int j = 0; j < 8; j++) {
+				if (taulell[i][j] != null && taulell[i][j].getColor().equalsIgnoreCase("negre")) {
+					contadorNegres++;
+				}
+			}
+		}
+		return contadorNegres;
+	}
+
+	public int getTotalFichasBlanques() {
+		return contarFichasBlanques();
+	}
+
+	public int getTotalFichasNegres() {
+		return contarFichasNegres();
+	}
+
+	// VALIDACIÓ DE MOVIMENTS
+	public boolean validarCasella(int fila, int columna, String colorJugador) {
+		// Verificar si la casella está fora del rang
+		if (fila < 0 || fila >= 8 || columna < 0 || columna >= 8) {
+			System.out.println("Coordenades fora de rang");
+			return false;
+		}
+
+		// Verificar si la casella está buida
+		if (taulell[fila][columna] == null) {
+			System.out.println("Casella buida");
+			return false;
+		}
+
+		// Verificar si la ficha en la casella es del color del jugador
+		if (!taulell[fila][columna].getColor().equalsIgnoreCase(colorJugador)) {
+			System.out.println("La fitxa seleccionada no és del teu color");
+			return false;
+		}
+
+		// La casella y la fitxa son vàlids
+		return true;
+	}
+
+	public boolean validarCasellaDesti(int filaDesti, int columnaDesti, String colorJugador) {
+		// Verificar si la casilla de destino está dentro del tablero
+		if (filaDesti < 0 || filaDesti >= 8 || columnaDesti < 0 || columnaDesti >= 8) {
+			System.out.println("Coordenades de destinació fora del rang.");
+			return false;
+		}
+
+		// Verificar si la casilla de destino está vacía
+		if (taulell[filaDesti][columnaDesti] == null) {
+			// La casilla de destino está vacía, por lo tanto, es válida
+			return true;
+		}
+
+		// Verificar si la casilla de destino contiene una ficha del jugador
+		if (taulell[filaDesti][columnaDesti].getColor().equalsIgnoreCase(colorJugador)) {
+			System.out.println("La casella de destinació conté una teva fitxa. Tria una altra casella.");
+			return false;
+		}
+
+		// La casilla de destino contiene una ficha del oponente, por lo tanto, es
+		// válida
+		return true;
+	}
+
+	public boolean validarMovimentBaidaq(int filaInicial, int columnaInicial, int filaDestino, int columnaDestino,
+			String colorJugador) {
+		// Validar que el movimiento esté dentro del tablero
+		if (filaDestino < 0 || filaDestino >= 8 || columnaDestino < 0 || columnaDestino >= 8) {
+			return false;
+		}
+
+		// Validar movimiento hacia adelante para el jugador blanco
+		if (colorJugador.equalsIgnoreCase("blanc") && filaDestino != filaInicial + 1) {
+			return false;
+		}
+
+		// Validar movimiento hacia adelante para el jugador negro
+		if (colorJugador.equalsIgnoreCase("negre") && filaDestino != filaInicial - 1) {
+			return false;
+		}
+
+		// Validar movimiento diagonal para captura
+		if (Math.abs(columnaDestino - columnaInicial) == 1) {
+			// Se permite la captura en diagonal
+			return true;
+		}
+
+		// Si no se cumple ninguna condición, el movimiento no es válido
+		return false;
+	}
+
+	public Fitxa[][] getTaulell() {
+		return taulell;
+	}
+	
+	public Fitxa getFitxa(int fila, int columna) {
+		return taulell[fila][columna];
+	}
+
+	/**
+	 * Retorna un String del taulell (amb marcs inclosos)
+	 */
 	@Override
 	public String toString() {
-	    StringBuilder sb = new StringBuilder();
+		StringBuilder sb = new StringBuilder();
 
-	    // Añadir fila superior con letras
-	    sb.append("  a b c d e f g h\n");
+		for (int fil = 7; fil >= 0; fil--) {
+			// Fila a fila anem creant el marc esquerra de nums
+			sb.append(fil + 1).append("| ");
+			for (int col = 0; col < 8; col++) {
+				// Añadir representación visual de la ficha en la posición fil, col
+				if (taulell[fil][col] != null) {
+					sb.append(taulell[fil][col].getVisual()).append(" ");
+				} else {
+					sb.append("· "); // En cas de no trobar res a l'array, serà el signe d'error
+				}
+			}
+			// Afegim un salt de línia per simular una nova fila
+			sb.append("\n");
+		}
 
-	    // Iterar sobre el tablero
-	    for (int i = 7; i >= 0; i--) {
-	        // Añadir número de fila a la izquierda
-	        sb.append(i + 1).append(" ");
-	        for (int j = 0; j < 8; j++) {
-	            // Añadir representación visual de la ficha en la posición i, j
-	            if (taulell[i][j] != null) {
-	                sb.append(taulell[i][j].getVisual()).append(" ");
-	            } else {
-	                sb.append("· ");
-	            }
-	        }
-	        // Añadir salto de línea
-	        sb.append("\n");
-	    }
+		// Marc inferior amb lletres
+		sb.append("  ----------------\n   a b c d e f g h\n");
 
-	    // Añadir fila inferior con letras
-	    sb.append("  a b c d e f g h\n");
-
-	    // Retornar el tablero como cadena de caracteres
-	    return sb.toString();
+		return sb.toString();
 	}
 }
-
-
-/*
-Fitxa[][] taulell = { {'r', 'f', 'e', 'x', 'm', 'e', 'f', 'r', },
-					 {'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', },
-					 {'·', '·', '·', '·', '·', '·', '·', '·', },
-					 {'·', '·', '·', '·', '·', '·', '·', '·', },
-					 {'·', '·', '·', '·', '·', '·', '·', '·', },
-					 {'·', '·', '·', '·', '·', '·', '·', '·', },
-					 {'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', },
-					 {'R', 'F', 'E', 'X', 'M', 'E', 'F', 'R', }};
-*/

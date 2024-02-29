@@ -14,7 +14,7 @@ public class Baidaq extends Fitxa {
 		} else if (color.equalsIgnoreCase("blanc")) {
 			return 'B';
 		} else {
-			return '?';
+			return '⚠';
 		}
 	}
 

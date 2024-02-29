@@ -14,7 +14,7 @@ public class Ruhk extends Fitxa {
 		} else if (color.equalsIgnoreCase("blanc")) {
 			return 'R';
 		} else {
-			return '?';
+			return '⚠';
 		}
 	}
 

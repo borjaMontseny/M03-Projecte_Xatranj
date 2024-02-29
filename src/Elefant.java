@@ -12,9 +12,9 @@ public class Elefant extends Fitxa {
 		if (color.equalsIgnoreCase("negre")) {
 			return 'e';
 		} else if (color.equalsIgnoreCase("blanc")) {
-			return 'F';
+			return 'E';
 		} else {
-			return '?';
+			return '⚠';
 		}
 	}
 

@@ -14,7 +14,7 @@ public class Faras extends Fitxa {
 		} else if (color.equalsIgnoreCase("blanc")) {
 			return 'F';
 		} else {
-			return '?';
+			return '⚠';
 		}
 	}
 

@@ -14,7 +14,7 @@ public class Ministre extends Fitxa {
 		} else if (color.equalsIgnoreCase("blanc")) {
 			return 'M';
 		} else {
-			return '?';
+			return '⚠';
 		}
 	}
 
