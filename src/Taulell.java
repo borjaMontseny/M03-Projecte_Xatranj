@@ -137,77 +137,61 @@ public class Taulell {
 			return false;
 		}
 
-		// Verificar si la casella está buida
+		// Verificar si la casella està buida
 		if (taulell[fila][columna] == null) {
 			System.out.println("Casella buida");
 			return false;
 		}
 
-		// Verificar si la ficha en la casella es del color del jugador
+		// Verificar si la fitxa en la casella, és del color del jugador
 		if (!taulell[fila][columna].getColor().equalsIgnoreCase(colorJugador)) {
 			System.out.println("La fitxa seleccionada no és del teu color");
 			return false;
 		}
 
-		// La casella y la fitxa son vàlids
+		// La casella i la fitxa son vàlids
 		return true;
 	}
 
 	public boolean validarCasellaDesti(int filaDesti, int columnaDesti, String colorJugador) {
-		// Verificar si la casilla de destino está dentro del tablero
+		// Verificar rang
 		if (filaDesti < 0 || filaDesti >= 8 || columnaDesti < 0 || columnaDesti >= 8) {
 			System.out.println("Coordenades de destinació fora del rang.");
 			return false;
 		}
 
-		// Verificar si la casilla de destino está vacía
+		// Verificar casella buida
 		if (taulell[filaDesti][columnaDesti] == null) {
 			// La casilla de destino está vacía, por lo tanto, es válida
 			return true;
 		}
 
-		// Verificar si la casilla de destino contiene una ficha del jugador
+		// Verificar que la casella no tingui una fitxa pròpia
 		if (taulell[filaDesti][columnaDesti].getColor().equalsIgnoreCase(colorJugador)) {
-			System.out.println("La casella de destinació conté una teva fitxa. Tria una altra casella.");
+			System.out.println("La casella de destinació conté una fitxa teva. Tria una altra casella.");
 			return false;
 		}
 
-		// La casilla de destino contiene una ficha del oponente, por lo tanto, es
-		// válida
+		// Si no pasa per cap if, vol dir que hi ha una fitxa enemiga, si s'hi pot
+		// moure, igual que si fos null
 		return true;
 	}
 
-	public boolean validarMovimentBaidaq(int filaInicial, int columnaInicial, int filaDestino, int columnaDestino,
-			String colorJugador) {
-		// Validar que el movimiento esté dentro del tablero
-		if (filaDestino < 0 || filaDestino >= 8 || columnaDestino < 0 || columnaDestino >= 8) {
-			return false;
-		}
+	public void moureFitxa(int filaInicial, int columnaInicial, int filaDesti, int columnaDesti) {
+		// Guardem la fitxa que es mourà
+		Fitxa fitxaAMoure = taulell[filaInicial][columnaInicial];
 
-		// Validar movimiento hacia adelante para el jugador blanco
-		if (colorJugador.equalsIgnoreCase("blanc") && filaDestino != filaInicial + 1) {
-			return false;
-		}
+		// Movem la fitxa a la destinació
+		taulell[filaDesti][columnaDesti] = fitxaAMoure;
 
-		// Validar movimiento hacia adelante para el jugador negro
-		if (colorJugador.equalsIgnoreCase("negre") && filaDestino != filaInicial - 1) {
-			return false;
-		}
-
-		// Validar movimiento diagonal para captura
-		if (Math.abs(columnaDestino - columnaInicial) == 1) {
-			// Se permite la captura en diagonal
-			return true;
-		}
-
-		// Si no se cumple ninguna condición, el movimiento no es válido
-		return false;
+		// Posem null a la casella d'origen
+		taulell[filaInicial][columnaInicial] = null;
 	}
 
 	public Fitxa[][] getTaulell() {
 		return taulell;
 	}
-	
+
 	public Fitxa getFitxa(int fila, int columna) {
 		return taulell[fila][columna];
 	}
@@ -219,15 +203,16 @@ public class Taulell {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 
+		// Comencem desde l'última fila
 		for (int fil = 7; fil >= 0; fil--) {
 			// Fila a fila anem creant el marc esquerra de nums
 			sb.append(fil + 1).append("| ");
 			for (int col = 0; col < 8; col++) {
-				// Añadir representación visual de la ficha en la posición fil, col
+				// Sumem la visual de la fitxa al stringBuilder
 				if (taulell[fil][col] != null) {
 					sb.append(taulell[fil][col].getVisual()).append(" ");
 				} else {
-					sb.append("· "); // En cas de no trobar res a l'array, serà el signe d'error
+					sb.append("· "); // Si es null posem ·
 				}
 			}
 			// Afegim un salt de línia per simular una nova fila
