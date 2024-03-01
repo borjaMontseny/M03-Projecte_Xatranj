@@ -40,4 +40,5 @@ public class Faras extends Fitxa {
 	public char getVisual() {
 		return visual;
 	}
+
 }

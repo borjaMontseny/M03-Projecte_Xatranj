@@ -86,11 +86,6 @@ public class Xatranj {
 		if (fitxa != null) {
 			switch (Character.toLowerCase(visual)) {
 			case 'b':
-				if (fitxa.validarMoviment(filaInicial, columnaInicial, filaDesti, columnaDesti, color,
-						taulell.getTaulell())) {
-					taulell.moureFitxa(filaInicial, columnaInicial, filaDesti, columnaDesti);
-				}
-				break;
 			case 'r':
 			case 'f':
 			case 'e':
@@ -105,7 +100,7 @@ public class Xatranj {
 				System.out.println("Error de switchMoviments()");
 			}
 		} else {
-			System.out.println("No hi ha cap fitxa en aquesta casella.");
+			System.out.println("No hi ha cap fitxa en aquesta casella");
 		}
 	}
 
