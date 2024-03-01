@@ -20,46 +20,36 @@ public class Xatranj {
         sc.close();
     }
 
-	public static int demanarFila(Scanner sc) {
-		System.out.print("Fila    -> ");
-		return (sc.nextInt() - 1);
-	}
+    public static int demanarFila(Scanner sc) {
+        int fila;
+        System.out.print("Fila    -> ");
+        fila = sc.nextInt();
+        while (fila < 1 || fila > 8) {
+            System.out.println("Fila fora del rang [1 - 8]");
+            System.out.print("Fila    -> ");
+            fila = sc.nextInt();
+        }
+        return (fila - 1);
+    }
 
-	public static int demanarColumna(Scanner sc) {
-		System.out.print("Columna -> ");
-		char columnaChar = Character.toLowerCase(sc.next().charAt(0));
-		int columna;
-		switch (columnaChar) {
-		case 'a':
-			columna = 0;
-			break;
-		case 'b':
-			columna = 1;
-			break;
-		case 'c':
-			columna = 2;
-			break;
-		case 'd':
-			columna = 3;
-			break;
-		case 'e':
-			columna = 4;
-			break;
-		case 'f':
-			columna = 5;
-			break;
-		case 'g':
-			columna = 6;
-			break;
-		case 'h':
-			columna = 7;
-			break;
-		default:
-			columna = -1;
-			break;
-		}
-		return columna;
-	}
+    public static int demanarColumna(Scanner sc) {
+        System.out.print("Columna -> ");
+        char columnaChar = Character.toLowerCase(sc.next().charAt(0));
+        char[] columnasValidas = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};
+        int columna = -1;
+        for (int i = 0; i < columnasValidas.length; i++) {
+            if (columnasValidas[i] == columnaChar) {
+                columna = i;
+                break;
+            }
+        }
+        if (columna == -1) {
+            System.out.println("Columna fora del rang [A - H]");
+            return demanarColumna(sc);
+        }
+        return columna;
+    }
+
 
 	public static void torn(Taulell taulell, Scanner sc, String color) {
 		int filaInicial;
@@ -121,9 +111,9 @@ public class Xatranj {
 
 	public static void anunciarGuanyador(Taulell taulell) {
 		if (taulell.getTotalFichasBlanques() > taulell.getTotalFichasNegres()) {
-			System.out.println("Guanya el jugador blanc!");
+			System.out.println("Guanya el jugador BLANC!");
 		} else if (taulell.getTotalFichasBlanques() < taulell.getTotalFichasNegres()) {
-			System.out.println("Guanya el jugador negre!");
+			System.out.println("Guanya el jugador NEGRE!");
 		}
 	}
 
