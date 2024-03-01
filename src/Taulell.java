@@ -128,6 +128,28 @@ public class Taulell {
 	public int getTotalFichasNegres() {
 		return contarFichasNegres();
 	}
+	
+	public boolean hiHaXaBlanc() {
+	    for (int i = 0; i < 8; i++) {
+	        for (int j = 0; j < 8; j++) {
+	            if (taulell[i][j] instanceof Xa && taulell[i][j].getColor().equalsIgnoreCase("blanc")) {
+	                return true;
+	            }
+	        }
+	    }
+	    return false;
+	}
+
+	public boolean hiHaXaNegre() {
+	    for (int i = 0; i < 8; i++) {
+	        for (int j = 0; j < 8; j++) {
+	            if (taulell[i][j] instanceof Xa && taulell[i][j].getColor().equalsIgnoreCase("negre")) {
+	                return true;
+	            }
+	        }
+	    }
+	    return false;
+	}
 
 	// VALIDACIÓ DE MOVIMENTS
 	public boolean validarCasella(int fila, int columna, String colorJugador) {

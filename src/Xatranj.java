@@ -2,23 +2,23 @@ import java.util.Scanner;
 
 public class Xatranj {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
+        Taulell taulell = new Taulell();
+        Scanner sc = new Scanner(System.in);
 
-		Taulell taulell = new Taulell();
-		Scanner sc = new Scanner(System.in);
+        String color = "blanc";
 
-		String color = "blanc";
+        do {
+            torn(taulell, sc, color);
+            // La ternària s'encarrega de canviar el color
+            color = (color.equals("blanc")) ? "negre" : "blanc";
+        } while (taulell.getTotalFichasBlanques() > 1 && taulell.getTotalFichasNegres() > 1
+                && taulell.hiHaXaBlanc() && taulell.hiHaXaNegre());
 
-		do {
-			torn(taulell, sc, color);
-			// La ternària s'encarrega de canviar el color
-			color = (color.equals("blanc")) ? "negre" : "blanc";
-		} while (taulell.getTotalFichasBlanques() > 1 && taulell.getTotalFichasNegres() > 1);
+        anunciarGuanyador(taulell);
 
-		anunciarGuanyador(taulell);
-
-		sc.close();
-	}
+        sc.close();
+    }
 
 	public static int demanarFila(Scanner sc) {
 		System.out.print("Fila    -> ");
