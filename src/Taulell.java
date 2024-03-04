@@ -10,14 +10,22 @@ public class Taulell {
 	}
 
 	// MÈTODES
-    // Singleton getInstance -> Mètode estàtic per obtenir una instància única de Taulell
-    public static Taulell getInstance() {
-        if (instance == null) {
-            instance = new Taulell();
-        }
-        return instance;
-    }
-	
+	/**
+	 * Retorna una única instància del taulell (Singleton), creant-ne una nova si
+	 * encara no existeix.
+	 * 
+	 * @return L'única instància del taulell.
+	 */
+	public static Taulell getInstance() {
+		if (instance == null) {
+			instance = new Taulell();
+		}
+		return instance;
+	}
+
+	/**
+	 * Omple el taulell de fitxes, per a començar una partida
+	 */
 	private void inicialitzarTaulell() {
 		// INSTANCIEM LES FITXES
 		// EQUIP BLANC
@@ -104,10 +112,15 @@ public class Taulell {
 
 	}
 
+	/**
+	 * Retorna la matriu de Fitxes[][]
+	 * 
+	 * @return taul
+	 */
 	public Fitxa[][] getTaulell() {
 		return taulell;
 	}
-	
+
 	public Fitxa getFitxa(int fila, int columna) {
 		return taulell[fila][columna];
 	}

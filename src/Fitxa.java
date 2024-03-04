@@ -17,6 +17,7 @@ public abstract class Fitxa {
 	// MÉTODES
 	/**
 	 * Segons el tipus de fitxa, ens dirà si es pot moure
+	 * 
 	 * @param filaInicial
 	 * @param columnaInicial
 	 * @param filaDesti
