@@ -1,14 +1,23 @@
 public class Taulell {
 
 	// ATRIBUTOS
+	private static Taulell instance;
 	private Fitxa[][] taulell = new Fitxa[8][8];
 
-	// CONSTRUCTOR
-	public Taulell() {
+	// CONSTRUCTOR (private, hi accedim amb el mètode getInstance)
+	private Taulell() {
 		inicialitzarTaulell();
 	}
 
-	// MÉTODOS
+	// MÈTODES
+    // Singleton getInstance -> Mètode estàtic per obtenir una instància única de Taulell
+    public static Taulell getInstance() {
+        if (instance == null) {
+            instance = new Taulell();
+        }
+        return instance;
+    }
+	
 	private void inicialitzarTaulell() {
 		// INSTANCIEM LES FITXES
 		// EQUIP BLANC
@@ -95,131 +104,16 @@ public class Taulell {
 
 	}
 
-	// COMPTADORS
-	// D'aquesta manera cada cop que cridem als getsB/N, es recompta de nou
-	private int contarFichasBlanques() {
-		int contadorBlanques = 0;
-		for (int i = 0; i < 8; i++) {
-			for (int j = 0; j < 8; j++) {
-				if (taulell[i][j] != null && taulell[i][j].getColor().equalsIgnoreCase("blanc")) {
-					contadorBlanques++;
-				}
-			}
-		}
-		return contadorBlanques;
-	}
-
-	private int contarFichasNegres() {
-		int contadorNegres = 0;
-		for (int i = 0; i < 8; i++) {
-			for (int j = 0; j < 8; j++) {
-				if (taulell[i][j] != null && taulell[i][j].getColor().equalsIgnoreCase("negre")) {
-					contadorNegres++;
-				}
-			}
-		}
-		return contadorNegres;
-	}
-
-	public int getTotalFichasBlanques() {
-		return contarFichasBlanques();
-	}
-
-	public int getTotalFichasNegres() {
-		return contarFichasNegres();
-	}
-	
-	public boolean hiHaXaBlanc() {
-	    for (int i = 0; i < 8; i++) {
-	        for (int j = 0; j < 8; j++) {
-	            if (taulell[i][j] instanceof Xa && taulell[i][j].getColor().equalsIgnoreCase("blanc")) {
-	                return true;
-	            }
-	        }
-	    }
-	    return false;
-	}
-
-	public boolean hiHaXaNegre() {
-	    for (int i = 0; i < 8; i++) {
-	        for (int j = 0; j < 8; j++) {
-	            if (taulell[i][j] instanceof Xa && taulell[i][j].getColor().equalsIgnoreCase("negre")) {
-	                return true;
-	            }
-	        }
-	    }
-	    return false;
-	}
-
-	// VALIDACIÓ DE MOVIMENTS
-	public boolean validarCasella(int fila, int columna, String colorJugador) {
-		// Verificar si la casella está fora del rang
-		if (fila < 0 || fila >= 8 || columna < 0 || columna >= 8) {
-			System.out.println("Coordenades fora de rang");
-			return false;
-		}
-
-		// Verificar si la casella està buida
-		if (taulell[fila][columna] == null) {
-			System.out.println("Casella buida");
-			return false;
-		}
-
-		// Verificar si la fitxa en la casella, és del color del jugador
-		if (!taulell[fila][columna].getColor().equalsIgnoreCase(colorJugador)) {
-			System.out.println("La fitxa seleccionada no és del teu color");
-			return false;
-		}
-
-		// La casella i la fitxa son vàlids
-		return true;
-	}
-
-	public boolean validarCasellaDesti(int filaDesti, int columnaDesti, String colorJugador) {
-		// Verificar rang
-		if (filaDesti < 0 || filaDesti >= 8 || columnaDesti < 0 || columnaDesti >= 8) {
-			System.out.println("Coordenades de destinació fora del rang.");
-			return false;
-		}
-
-		// Verificar casella buida
-		if (taulell[filaDesti][columnaDesti] == null) {
-			// La casilla de destino está vacía, por lo tanto, es válida
-			return true;
-		}
-
-		// Verificar que la casella no tingui una fitxa pròpia
-		if (taulell[filaDesti][columnaDesti].getColor().equalsIgnoreCase(colorJugador)) {
-			System.out.println("La casella de destinació conté una fitxa teva. Tria una altra casella.");
-			return false;
-		}
-
-		// Si no pasa per cap if, vol dir que hi ha una fitxa enemiga, si s'hi pot
-		// moure, igual que si fos null
-		return true;
-	}
-
-	public void moureFitxa(int filaInicial, int columnaInicial, int filaDesti, int columnaDesti) {
-		// Guardem la fitxa que es mourà
-		Fitxa fitxaAMoure = taulell[filaInicial][columnaInicial];
-
-		// Movem la fitxa a la destinació
-		taulell[filaDesti][columnaDesti] = fitxaAMoure;
-
-		// Posem null a la casella d'origen
-		taulell[filaInicial][columnaInicial] = null;
-	}
-
 	public Fitxa[][] getTaulell() {
 		return taulell;
 	}
-
+	
 	public Fitxa getFitxa(int fila, int columna) {
 		return taulell[fila][columna];
 	}
 
 	/**
-	 * Retorna un String del taulell (amb marcs inclosos)
+	 * Retorna un String del taulell (amb marcs de guia de coordenades inclosos)
 	 */
 	@Override
 	public String toString() {
@@ -246,4 +140,5 @@ public class Taulell {
 
 		return sb.toString();
 	}
+
 }

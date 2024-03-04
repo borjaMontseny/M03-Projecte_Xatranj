@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Xatranj {
 
     public static void main(String[] args) {
-        Taulell taulell = new Taulell();
+        Taulell taulell = Taulell.getInstance();
         Scanner sc = new Scanner(System.in);
 
         String color = "blanc";
@@ -12,8 +12,7 @@ public class Xatranj {
             torn(taulell, sc, color);
             // La ternària s'encarrega de canviar el color
             color = (color.equals("blanc")) ? "negre" : "blanc";
-        } while (taulell.getTotalFichasBlanques() > 1 && taulell.getTotalFichasNegres() > 1
-                && taulell.hiHaXaBlanc() && taulell.hiHaXaNegre());
+        } while (TaulellUtils.hiHaXaBlanc(taulell) && TaulellUtils.hiHaXaNegre(taulell));
 
         anunciarGuanyador(taulell);
 
@@ -67,14 +66,15 @@ public class Xatranj {
 			if (taulell.getFitxa(filaInicial, columnaInicial) == null) {
 				System.out.println("No hi ha cap fitxa en aquesta casella.");
 			}
-		} while (!taulell.validarCasella(filaInicial, columnaInicial, color));
+			// taulell.validarCasella(filaInicial, columnaInicial, color)
+		} while (!TaulellUtils.validarCasella(filaInicial, columnaInicial, color, taulell));
 
 		do {
 			System.out.println("\nCoordenades destí");
 			System.out.println("Tipus Fitxa -> '" + taulell.getFitxa(filaInicial, columnaInicial).getVisual() + "'");
 			filaDesti = demanarFila(sc);
 			columnaDesti = demanarColumna(sc);
-		} while (!taulell.validarCasellaDesti(filaDesti, columnaDesti, color));
+		} while (!TaulellUtils.validarCasellaDesti(filaInicial, columnaInicial, color, taulell));
 
 		switchMoviments(taulell, taulell.getFitxa(filaInicial, columnaInicial).getVisual(), filaInicial, columnaInicial,
 				filaDesti, columnaDesti, color);
@@ -91,7 +91,8 @@ public class Xatranj {
 			case 'e':
 				if (fitxa.validarMoviment(filaInicial, columnaInicial, filaDesti, columnaDesti, color,
 						taulell.getTaulell())) {
-					taulell.moureFitxa(filaInicial, columnaInicial, filaDesti, columnaDesti);
+					// moureFitxa(int filaInicial, int columnaInicial, int filaDesti, int columnaDesti, Fitxa[][] taulell)
+					TaulellUtils.moureFitxa(filaInicial, columnaInicial, filaDesti, columnaDesti, taulell);;
 				} else {
 					System.out.println("Moviment no vàlid.");
 				}
@@ -105,9 +106,9 @@ public class Xatranj {
 	}
 
 	public static void anunciarGuanyador(Taulell taulell) {
-		if (taulell.getTotalFichasBlanques() > taulell.getTotalFichasNegres()) {
+		if (TaulellUtils.getTotalFitxesBlanques(taulell) > TaulellUtils.getTotalFitxesBlanques(taulell)) {
 			System.out.println("Guanya el jugador BLANC!");
-		} else if (taulell.getTotalFichasBlanques() < taulell.getTotalFichasNegres()) {
+		} else if (TaulellUtils.getTotalFitxesBlanques(taulell) < TaulellUtils.getTotalFitxesNegres(taulell)) {
 			System.out.println("Guanya el jugador NEGRE!");
 		}
 	}

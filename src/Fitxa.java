@@ -14,7 +14,17 @@ public abstract class Fitxa {
 		this.visual = visual;
 	}
 
-	// MÉTODOS
+	// MÉTODES
+	/**
+	 * Segons el tipus de fitxa, ens dirà si es pot moure
+	 * @param filaInicial
+	 * @param columnaInicial
+	 * @param filaDesti
+	 * @param columnaDesti
+	 * @param colorJugador
+	 * @param taulell
+	 * @return
+	 */
 	public abstract boolean validarMoviment(int filaInicial, int columnaInicial, int filaDesti, int columnaDesti,
 			String colorJugador, Fitxa[][] taulell);
 
