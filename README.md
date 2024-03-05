@@ -37,7 +37,8 @@ public abstract class Fitxa {
 }
 ```
 
-2. **Taulell.java**: Representa el tauler de joc del Xatranj. Conté mètodes per inicialitzar el tauler, validar moviments i gestionar les peces al tauler.
+2. **Taulell.java**: Representa el tauler de joc del Xatranj.
+Conté mètodes per inicialitzar el tauler, validar moviments i gestionar les peces al tauler.
 
 ```java
 public class Taulell {
@@ -54,7 +55,8 @@ public class Taulell {
 }
 ```
 
-3. **Xatranj.java**: Classe principal que conté el mètode `main` del joc. Gestiona el flux del joc, els torns dels jugadors i la lògica del joc.
+3. **Xatranj.java**: Classe principal que conté el mètode `main` del joc.
+Gestiona el flux del joc, els torns dels jugadors i la lògica del joc.
 
 ```java
 public class Xatranj {
@@ -74,10 +76,9 @@ public class Xatranj {
 ### Utilitats
 
 - TaulellUtils.java: Classe que proporciona mètodes útils per operar amb el tauler i les peces del joc.
+Creada per a treure pes i simplificar la classe Taulell.java
 
-## Instruccions d'Execució
-
-Per executar el joc, segueix aquests passos:
+## Instruccions
 
 1. Clona el repositori a la teva màquina local.
 2. Obre el projecte al teu IDE preferit.
