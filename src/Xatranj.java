@@ -97,8 +97,8 @@ public class Xatranj {
 			columnaInicial = demanarColumna(sc);
 			if (taulell.getFitxa(filaInicial, columnaInicial) == null) {
 				System.out.println("No hi ha cap fitxa en aquesta casella.");
+				System.out.println(taulell);
 			}
-			// taulell.validarCasella(filaInicial, columnaInicial, color)
 		} while (!TaulellUtils.validarCasella(filaInicial, columnaInicial, color, taulell));
 
 		do {
