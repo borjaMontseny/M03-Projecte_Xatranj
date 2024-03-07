@@ -149,7 +149,7 @@ public class Taulell {
 		}
 
 		// Marc inferior amb lletres
-		sb.append("  ----------------\n   a b c d e f g h\n");
+		sb.append("  ----------------\n   A B C D E F G H\n");
 
 		return sb.toString();
 	}

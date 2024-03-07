@@ -20,18 +20,22 @@ public class Xa extends Fitxa {
 	@Override
 	public boolean validarMoviment(int filaInicial, int columnaInicial, int filaDesti, int columnaDesti,
 			String colorJugador, Fitxa[][] taulell) {
-		// Comprovació dels límits del tauler
+		// Comprovacio de Fila i Columna dins del rang del array [0-7]
 		if (filaDesti < 0 || filaDesti >= 8 || columnaDesti < 0 || columnaDesti >= 8) {
 			return false;
 		}
 
-		// Comprovació del moviment similar al rei en escacs (màxim un moviment en
-		// qualsevol direcció)
-		if (Math.abs(filaDesti - filaInicial) <= 1 && Math.abs(columnaDesti - columnaInicial) <= 1) {
-			return true; // Moviment vàlid
+		// Calculem la diferència absoluta per comprovar els moviments
+		int filaDif = Math.abs(filaDesti - filaInicial);
+		int columnaDif = Math.abs(columnaDesti - columnaInicial);
+
+		// Verificar ortogonal i diagonalment 1 casella de diferència respecte d'on estava
+		if ((filaDif == 1 && columnaDif == 0) || (filaDif == 0 && columnaDif == 1)
+				|| (filaDif == 1 && columnaDif == 1)) {
+			return true; // Vàlid
 		}
 
-		return false; // Moviment invàlid
+		return false; // Invàlid
 	}
 
 	public char getVisual() {

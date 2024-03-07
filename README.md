@@ -83,5 +83,5 @@ Creada per a treure pes i simplificar la classe Taulell.java
 1. Clona el repositori a la teva màquina local.
 2. Obre el projecte al teu IDE preferit.
 3. Executa la classe `Xatranj.java`.
-4. Busca un amic amb qui jugar
+4. Busca un amic amb qui jugar.
 5. Que guanyi el millor!

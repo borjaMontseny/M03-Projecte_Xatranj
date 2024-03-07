@@ -106,7 +106,7 @@ public class Xatranj {
 			System.out.println("Fitxa   -> '" + taulell.getFitxa(filaInicial, columnaInicial).getVisual() + "'");
 			filaDesti = demanarFila(sc);
 			columnaDesti = demanarColumna(sc);
-		} while (!TaulellUtils.validarCasellaDesti(filaInicial, columnaInicial, color, taulell));
+		} while (!TaulellUtils.validarCasellaDesti(filaDesti, columnaDesti, color, taulell));
 
 		switchMoviments(taulell, taulell.getFitxa(filaInicial, columnaInicial).getVisual(), filaInicial, columnaInicial,
 				filaDesti, columnaDesti, color);
@@ -127,11 +127,13 @@ public class Xatranj {
 			int columnaDesti, String color) {
 		Fitxa fitxa = taulell.getFitxa(filaInicial, columnaInicial);
 		if (fitxa != null) {
-			switch (Character.toLowerCase(visual)) {
+			switch (Character.toLowerCase(fitxa.getVisual())) {
 			case 'b':
 			case 'r':
 			case 'f':
 			case 'e':
+			case 'x':
+			case 'm':
 				if (fitxa.validarMoviment(filaInicial, columnaInicial, filaDesti, columnaDesti, color,
 						taulell.getTaulell())) {
 					// moureFitxa(int filaInicial, int columnaInicial, int filaDesti, int
@@ -151,8 +153,7 @@ public class Xatranj {
 	}
 
 	/**
-	 * Anuncia el guanyador del joc basant-se en quin jugador té més fitxes al
-	 * taulell i en la presència del Xa.
+	 * Anuncia el guanyador en base a qui conserva el Xa.
 	 * 
 	 * @param taulell El taulell actual del joc.
 	 */
@@ -162,9 +163,9 @@ public class Xatranj {
 
 		// Comprovem si hi ha un Xa en el taulell
 		if (hiHaXaBlanc && !hiHaXaNegre) {
-			System.out.println("Guanya el jugador BLANC!");
+			System.out.println("[ Guanya el jugador BLANC! ]");
 		} else if (!hiHaXaBlanc && hiHaXaNegre) {
-			System.out.println("Guanya el jugador NEGRE!");
+			System.out.println("[ Guanya el jugador NEGRE! ]");
 		}
 	}
 }
